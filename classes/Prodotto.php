@@ -1,21 +1,43 @@
 <?php
-  class Book {
-    public $codiceArticolo;
-    public $title;
-    public $anno_pubblicazione;
+
+//proprietà dei prodotti
+class Prodotto {
+    public $marca;
+    public $tipo;
+    public $taglia;
     public $prezzo;
+    private $scaffale;
+    private $giacenza;
 
-    public function __construct($_codiceArticolo, $_title, $_anno_pubblicazione) {
-      $this->codiceArticolo = $_codiceArticolo;
-      $this->title = $_title;
-      $this->anno_pubblicazione = $_anno_pubblicazione;
+    //costruttore
+    public function __construct($_marca, $_tipo,$_giacenza){
+        $this->marca = $_marca;
+        $this->tipo = $_tipo;
+        $this->giacenza =$_giacenza;
 
     }
 
-    public function calcolaSconto() {
-      if (empty($this->prezzo)) {
-        die('nessun prezzo inserito');
-      }
-      return $this->prezzo - ($this->prezzo * 0.20) . ' euro';
+//metodi
+    // public function setPosition($_scaffale){
+    //     $this->scaffale->scaffale;
+    // }
+    //
+    // public function getPosition(){
+    //     if (empty($this->scaffale)){
+    //         die('non hai inserito lo scaffale');
+    //     }
+    //     return $this->scaffale;
+    // }
+
+    public function calcoloPrezzo(){
+        if (empty($this->prezzo)) {
+            die('non hai inserito il prezzo');
+        }
+        return $this->prezzo -($this->prezzo*0.10).' euro' ;
     }
-  }
+
+
+
+
+
+};
